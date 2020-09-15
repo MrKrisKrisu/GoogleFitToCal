@@ -44,7 +44,7 @@ class GoogleFitToCal
 
         foreach ($data->session as $session) {
             $start = Carbon::createFromTimestampMs($session->startTimeMillis);
-            $end = Carbon::createFromTimestampMs($session->endTimeMillis);
+            $end   = Carbon::createFromTimestampMs($session->endTimeMillis);
 
             $vEvent = new Event();
             $vEvent
