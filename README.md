@@ -4,7 +4,7 @@ This library will retrieve the latest activities (e.g. sleep, jogging, ...) from
 returnes an iCalendar, so you can embed them to your Calendar.
 
 ## Example output
-```
+``` ics
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:k118.de
@@ -33,27 +33,25 @@ END:VCALENDAR
 
 ## Installation
 
-```
-composer require mrkriskrisu/google-fit-to-ics
-```
+`composer require mrkriskrisu/google-fit-to-ics`
 
 ## Requirements
 
-- PHP 7.0
-- PHP JSON Extension
-- Composer
+*   PHP 7.0
+*   PHP JSON Extension
+*   Composer
 
 To retrieve the data you'll also need the Bearer Token for the Google Account 
 you want to access.
 
 ## Example
-```
+``` php
 use GoogleFitToCal\GoogleFitToCal;
 
 require_once '../vendor/autoload.php';
 
-$fitToCal = new GoogleFitToCal('ya29.a... TOKEN');
-$ics = $fitToCal->get('domain');
+$fitToCal = new GoogleFitToCal('ya29.TOKEN');
+$ics = $fitToCal->get('example.org');
 
 echo strlen($ics) . " Bytes of your fitness data will be written to file googlefit.ics...";
 
