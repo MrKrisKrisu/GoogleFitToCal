@@ -13,6 +13,10 @@ class GoogleFitToCal
 
     private $gcpBearerToken;
 
+    /**
+     * GoogleFitToCal constructor.
+     * @param $gcpBearerToken
+     */
     public function __construct($gcpBearerToken)
     {
         $this->gcpBearerToken = $gcpBearerToken;
@@ -25,14 +29,17 @@ class GoogleFitToCal
      */
     public function get(string $calendarProdId): string
     {
-        $client = new Client();
-        $res = $client->request('GET', 'https://www.googleapis.com/fitness/v1/users/me/sessions', [
-            'headers' => [
-                'Authorization' => 'Bearer ' . $this->gcpBearerToken
-            ]
-        ]);
+        $data = $this->loadData();
+        return $this->parseData($calendarProdId, $data);
+    }
 
-        $data      = json_decode($res->getBody());
+    /**
+     * @param $calendarProdId
+     * @param $data
+     * @return string
+     */
+    public function parseData($calendarProdId, $data): string
+    {
         $vCalendar = new Calendar($calendarProdId);
 
         foreach ($data->session as $session) {
@@ -48,6 +55,22 @@ class GoogleFitToCal
         }
 
         return $vCalendar->render();
+    }
+
+    /**
+     * @return array
+     * @throws GuzzleException
+     */
+    private function loadData()
+    {
+        $client = new Client();
+        $res = $client->request('GET', 'https://www.googleapis.com/fitness/v1/users/me/sessions', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->gcpBearerToken
+            ]
+        ]);
+        echo $res->getBody();
+        return json_decode($res->getBody());
     }
 
 }
