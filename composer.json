@@ -1,5 +1,6 @@
 {
   "name": "mrkriskrisu/google-fit-to-cal",
+  "description": "Library to generate an ics calendar file from Google Fit Activities",
   "type": "library",
   "license": "MIT",
   "authors": [
