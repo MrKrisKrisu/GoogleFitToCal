@@ -1,0 +1,23 @@
+{
+  "name": "mrkriskrisu/google-fit-to-cal",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "mrkriskrisu"
+    }
+  ],
+  "require": {
+    "php": "^7.0",
+    "ext-json": "*",
+    "nesbot/carbon": "^2.39",
+    "guzzlehttp/guzzle": "^7.0",
+    "league/oauth2-google": "^3.0",
+    "eluceo/ical": "^0.16.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "GoogleFitToCal\\": "src/"
+    }
+  }
+}
