@@ -32,12 +32,12 @@ class GoogleFitToCal
             ]
         ]);
 
-        $data = json_decode($res->getBody());
+        $data      = json_decode($res->getBody());
         $vCalendar = new Calendar($calendarProdId);
 
         foreach ($data->session as $session) {
             $start = Carbon::createFromTimestampMs($session->startTimeMillis);
-            $end = Carbon::createFromTimestampMs($session->endTimeMillis);
+            $end   = Carbon::createFromTimestampMs($session->endTimeMillis);
 
             $vEvent = new Event();
             $vEvent
