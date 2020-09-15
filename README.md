@@ -1,4 +1,5 @@
 # Google Fit to ics (Calendar)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/02c78d23fb63479a8cdded50b887a69f)](https://www.codacy.com/manual/MrKrisKrisu/GoogleFitToCal?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MrKrisKrisu/GoogleFitToCal&amp;utm_campaign=Badge_Grade)
 
 This library will retrieve the latest activities (e.g. sleep, jogging, ...) from Google Fit and 
 returnes an iCalendar, so you can embed them to your Calendar.
